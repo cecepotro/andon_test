@@ -1,0 +1,97 @@
+﻿<main class="grow" role="content">
+    <div class="pb-5">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+            <div class="flex items-center flex-wrap gap-1 lg:gap-5">
+                <h1 class="font-medium text-base text-mono">
+                    Líneas
+                </h1>
+                <div class="flex items-center flex-wrap gap-1 text-sm">
+                    <a class="text-secondary-foreground hover:text-primary">
+                        Inicio
+                    </a>
+                    <span class="text-muted-foreground text-sm">
+                        /
+                    </span>
+                    <span class="text-secondary-foreground">
+                        Líneas
+                    </span>
+                </div>
+            </div>
+            <div class="flex items-center flex-wrap gap-3">
+                <a class="kt-btn kt-btn-primary" id="btn-line-modal">
+                    <i class="ki-filled ki-plus-squared"></i>
+                    Nueva
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid gap-5 lg:gap-7.5">
+        <div class="kt-card kt-card-grid min-w-full">
+            <div class="kt-card-header flex-wrap gap-2">
+                <h3 class="kt-card-title text-sm">
+                    Líneas
+                </h3>
+                <div class="flex flex-wrap gap-2.5">
+                    <div class="flex flex-wrap gap-2 lg:gap-5">
+                        <div class="flex">
+                            <label class="kt-input">
+                                <i class="ki-filled ki-magnifier"></i>
+                                <input id="line-search" placeholder="Buscar líneas" type="text" value="" />
+                            </label>
+                        </div>
+                    </div>
+                    <button class="kt-btn kt-btn-outline kt-btn-primary" id="btn-search">
+                        <i class="ki-filled ki-magnifier"></i>
+                        Buscar
+                    </button>
+                </div>
+            </div>
+
+            <div class="kt-card-content">
+                <div data-kt-datatable="true" data-kt-datatable-state-save="false">
+                    <div class="kt-scrollable-x-auto">
+                        <table id="table-lines" class="kt-table table-auto kt-table-border">
+                            <thead>
+                                <tr>
+                                    <th class="min-w-[350px]">
+                                        <span class="kt-table-col">
+                                            <span class="kt-table-col-label">
+                                                Nombre
+                                            </span>
+                                        </span>
+                                    </th>
+                                    <th class="w-[80px] text-center">
+                                        Editar
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="kt-card-footer justify-center md:justify-between flex-col md:flex-row gap-5 text-secondary-foreground text-sm font-medium">
+                        <div class="flex items-center gap-2 order-2 md:order-1">
+                            Mostrar
+                            <select class="kt-select w-16" data-kt-datatable-size="true" data-kt-select="" id="perpageSelect" name="perpage">
+                                <option selected>5</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                            </select>
+                            por página
+                        </div>
+                        <div class="flex items-center gap-4 order-1 md:order-2">
+                            <span data-kt-datatable-info="true">
+                            </span>
+                            <div id="paginationContainer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="~/Content/js/andon/tables/initialize.js?v=@MvcApplication.version"></script>
+<script src="~/Content/js/andon/line/general.js?v=@MvcApplication.version"></script>

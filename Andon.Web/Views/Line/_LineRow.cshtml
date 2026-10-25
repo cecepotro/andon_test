@@ -1,0 +1,19 @@
+﻿@model IList<Andon.Core.Entities.Line>
+@if (Model.Count > 0) {
+    foreach (var l in Model) {
+        <tr>
+            <td class="text-foreground font-normal">
+                <a class="text-mono hover:text-primary mb-px cursor-pointer" onclick="openModal(@l.Id);">
+                    @l.Name
+                </a>
+            </td>
+            <td class="text-center">
+                <a class="kt-btn kt-btn-sm kt-btn-icon kt-btn-ghost" onclick="openModal(@l.Id)">
+                    <i class="ki-filled ki-notepad-edit"></i>
+                </a>
+            </td>
+        </tr>
+    }
+} else {
+    @Html.Partial("_NoRecords", new ViewDataDictionary { { "Columns", 2 } })
+}

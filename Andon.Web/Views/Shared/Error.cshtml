@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html class="h-full" lang="es">
+<head>
+    <title>Error</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+    <link href="~/Content/css/styles.css?v=@MvcApplication.version" rel="stylesheet" />
+</head>
+<body class="antialiased flex h-full text-base text-foreground bg-background">
+    <div class="flex flex-col items-center justify-center grow gap-3">
+        <h1 class="text-xl font-semibold text-mono">Error</h1>
+        <p class="text-sm text-secondary-foreground">Ocurrió un error al procesar la solicitud.</p>
+        <a class="kt-btn kt-btn-primary" href="@Url.Action("Index", "Home")">Volver</a>
+    </div>
+</body>
+</html>

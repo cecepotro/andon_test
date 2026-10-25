@@ -1,0 +1,86 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html class="h-full" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="es">
+<head>
+    <title>Andon</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="~/Content/vendors/keenicons/styles.bundle.css?v=@MvcApplication.version" rel="stylesheet" />
+    <link href="~/Content/css/styles.css?v=@MvcApplication.version" rel="stylesheet" />
+    <link href="~/Content/images/logos/semaforo.svg" rel="shortcut icon" />
+</head>
+<body class="antialiased flex h-full text-base text-foreground bg-background">
+    <script>
+        const defaultThemeMode = 'light';
+        let themeMode;
+
+        if (document.documentElement) {
+            if (localStorage.getItem('kt-theme')) {
+                themeMode = localStorage.getItem('kt-theme');
+            } else if (document.documentElement.hasAttribute('data-kt-theme-mode')) {
+                themeMode = document.documentElement.getAttribute('data-kt-theme-mode');
+            } else {
+                themeMode = defaultThemeMode;
+            }
+
+            if (themeMode === 'system') {
+                themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            document.documentElement.classList.add(themeMode);
+        }
+    </script>
+    <div class="flex items-center justify-center grow bg-center bg-no-repeat">
+        <div class="kt-card max-w-[370px] w-full">
+            <form action="@Url.Action("Index", "Home")" method="post" class="kt-card-content flex flex-col gap-5 p-10" id="sign_in_form">
+                <div class="flex justify-center items-center gap-3">
+                    <img alt="Andon" class="h-10" src="~/Content/images/logos/semaforo.svg" />
+                    <span class="text-xl font-semibold text-mono">Andon</span>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-lg font-medium text-mono leading-none mb-2.5">
+                        Iniciar sesión
+                    </h3>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="kt-form-label font-normal text-mono">
+                        Usuario
+                    </label>
+                    <input class="kt-input" type="text" id="user" name="user" autocomplete="off" />
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="kt-form-label font-normal text-mono">
+                        Contraseña
+                    </label>
+                    <div class="kt-input" data-kt-toggle-password="true">
+                        <input type="password" id="password" name="password" />
+                        <button class="kt-btn kt-btn-sm kt-btn-ghost kt-btn-icon bg-transparent! -me-1.5" data-kt-toggle-password-trigger="true" type="button">
+                            <span class="kt-toggle-password-active:hidden">
+                                <i class="ki-filled ki-eye text-muted-foreground"></i>
+                            </span>
+                            <span class="hidden kt-toggle-password-active:block">
+                                <i class="ki-filled ki-eye-slash text-muted-foreground"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                @if (!String.IsNullOrEmpty(ViewBag.Message)) {
+                    <div class="text-sm text-center text-destructive font-medium mt-1 mb-2">
+                        @ViewBag.Message
+                    </div>
+                }
+                <button class="kt-btn kt-btn-primary flex justify-center grow">
+                    Entrar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="~/Content/js/core.bundle.js?v=@MvcApplication.version"></script>
+    <script src="~/Content/vendors/ktui/ktui.min.js?v=@MvcApplication.version"></script>
+</body>
+</html>

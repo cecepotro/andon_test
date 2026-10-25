@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Andon.Core/Andon.Core.csproj" Id="d55d9c7b-fd7d-445c-ae13-eec2cabe6ada" />
+  <Project Path="Andon.Web/Andon.Web.csproj" Id="1b82c735-1d05-4e69-9b39-f2535c2ebc75" />
+</Solution>
